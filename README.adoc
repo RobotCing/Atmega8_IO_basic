@@ -180,53 +180,6 @@ From `0` or `100` depending on ambient light.
 [LED]
 
 
-#### Description
-
-Prepares the data pin for WS2812 output. This command should be used in `void setup(){}`.
-
-#### Syntax
-
-`Cing.InitLed()`
-
----
-
-### Cing.SetLedColor()
-
-[LED]
-
-
-#### Description
-
-Sets color of WS2812.
-
-#### Syntax
-
-`Cing.SetLedColor(led,red,green,blue)`
-
-#### Parameters
-
-led: Led number which you want to set color. Firt led starts at index `1`.
-red: Red value in % from `0` to `100`.
-green: Green value in % from `0` to `100`.
-blue: Blue value in % from `0` to `100`.
-
----
-
-### Cing.ShowLed()
-
-[LED]
-
-
-#### Description
-
-Display set color of WS2812.
-
-#### Syntax
-
-`Cing.ShowLed()`
-
----
-
 ## In progress
 
 ### Cing.UltrasonicSensor()
