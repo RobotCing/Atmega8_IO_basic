@@ -20,6 +20,7 @@ ReadShineSensor				            KEYWORD2
 ReadButton			                  KEYWORD2
 ReadButtonExternal			          KEYWORD2
 ReadProtentiometerExternal	      KEYWORD2
+ReadShineArray                    KEYWORD2
 
 ##########################################
 # Constants (LITERAL1)
