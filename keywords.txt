@@ -12,7 +12,7 @@ Atmega8_IO_basic	                KEYWORD1
 ##########################################
 # Methods and Functions (KEYWORD2)
 ##########################################
-Robot                             KEYWORD2
+Cing                              KEYWORD2
 RunMotor					                KEYWORD2
 ReadLightSensor				            KEYWORD2
 ReadUltrasonicSensor		          KEYWORD2
