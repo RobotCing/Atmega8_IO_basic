@@ -1,11 +1,256 @@
-= Atmega8_IO_basic Library for robot Cing =
+# Atmega8_IO_basic Library for robot Cing #
 
 This library allows robot Cing to be programmed easily.
 
 For more information about this library please visit us at
 http://robotcing.wz.sk
 
-== License ==
+---
+
+## Attiny Libraries Functions
+
+### Cing.RunMotor()
+[Motor]
+
+#### Description
+
+Controls motor movement.
+
+#### Syntax
+
+`Cing.RunMotor(motor,state,mode)`
+
+#### Parameters
+
+motor: `"A"`, `"B"`, `"AB"`
+
+state: `0` or `1` or `-1` if digital mode is used. Positive values are used for forward, negative values are used for reverse.
+
+mode: `"digital"`
+
+---
+
+### Cing.ReadButtonExternal()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from external button, either `0` or `1`.
+
+
+#### Syntax
+
+`Cing.ReadButtonExternal()`
+
+
+#### Returns
+
+`0` if button is not pressed or `1` if button is pressed.
+
+---
+
+### Cing.ReadButton()
+
+[Build-in sensor]
+
+
+#### Description
+
+Reads the value from button, either `0` or `1`. When pressed changes value of `Cing.ReadShineArray(1)` to `100`.
+
+
+#### Syntax
+
+`Cing.ReadButton()`
+
+
+#### Returns
+
+`0` if button is not pressed or `1` if button is pressed.
+
+---
+
+### Cing.ReadPotentiometerExternal()
+[Sensor]
+
+#### Description
+
+Reads the value from external potentiometer.
+
+#### Syntax
+
+`Cing.ReadPotentiometerExternal()`
+
+#### Returns
+From `0` or `100` depending on potentiometer position.
+
+---
+
+### Cing.ReadPotentiometer()
+[Build-in sensor]
+
+#### Description
+
+Reads the value from potentiometer.
+
+#### Syntax
+
+`Cing.ReadPotentiometer()`
+
+#### Returns
+From `0` or `100` depending on potentiometer position.
+
+---
+
+### Cing.ReadLightSensor()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from light sensor.
+
+
+#### Syntax
+
+`Cing.ReadLightSensor(sensor,mode)`
+
+
+#### Parameters
+
+sensor: `1` or `2` used for selection of sensor.
+
+mode: `"digital"` or `"analog"`
+
+
+#### Returns
+
+From `0` to `100` in analog mode and either `0` or `1` in digital mode.
+
+---
+
+### Cing.ReadShineSensor()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from external shine sensor.
+
+
+#### Syntax
+
+`Cing.ReadShineSensor()`
+
+
+#### Returns
+
+From `0` or `100` depending on ambient light.
+
+---
+
+### Cing.ReadShineArray()
+
+[Build-in sensor]
+
+
+#### Description
+
+Reads the value from external shine sensor.
+
+
+#### Syntax
+
+`Cing.ReadShineArray(sensor)`
+
+#### Parameters
+
+sensor: `1` or `2` used for selection of sensor.
+
+#### Returns
+
+From `0` or `100` depending on ambient light.
+
+### Cing.InitLed()
+
+[LED]
+
+
+#### Description
+
+Prepares the data pin for WS2812 output. This command should be used in `void setup(){}`.
+
+#### Syntax
+
+`Cing.InitLed()`
+
+---
+
+### Cing.SetLedColor()
+
+[LED]
+
+
+#### Description
+
+Sets color of WS2812.
+
+#### Syntax
+
+`Cing.SetLedColor(led,red,green,blue)`
+
+#### Parameters
+
+led: Led number which you want to set color. Firt led starts at index `1`.
+red: Red value in % from `0` to `100`.
+green: Green value in % from `0` to `100`.
+blue: Blue value in % from `0` to `100`.
+
+---
+
+### Cing.ShowLed()
+
+[LED]
+
+
+#### Description
+
+Display set color of WS2812.
+
+#### Syntax
+
+`Cing.ShowLed()`
+
+---
+
+## In progress
+
+### Cing.UltrasonicSensor()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from external ultrasonic sensor.
+
+
+#### Syntax
+
+`Cing.UltrasonicSensor()`
+
+
+#### Returns
+
+Distance in mm from `0` to `400`.
+
+---
+
+## License ##
 
 Copyright © 2019 RobotCing Team. All right reserved.
 
