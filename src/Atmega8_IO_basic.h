@@ -20,6 +20,7 @@ class Cing
     bool ReadButton();
     bool ReadButtonExternal();
     int ReadPotentiometer();
+    int ReadShineArray(int sensor=1);
 // local variables
   private:
 };
