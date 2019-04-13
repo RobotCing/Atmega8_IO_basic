@@ -15,13 +15,12 @@ Atmega8_IO_basic	                KEYWORD1
 Cing                              KEYWORD2
 RunMotor					                KEYWORD2
 ReadLightSensor				            KEYWORD2
-ReadUltrasonicSensor		          KEYWORD2
 ReadShineSensor				            KEYWORD2
 ReadButton			                  KEYWORD2
 ReadButtonExternal			          KEYWORD2
 ReadProtentiometerExternal	      KEYWORD2
 ReadShineArray                    KEYWORD2
-
+ReadUltrasonicSensor	            KEYWORD2
 ##########################################
 # Constants (LITERAL1)
 ##########################################

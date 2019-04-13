@@ -179,34 +179,12 @@ int Cing::ReadLightSensor(int sensor,String mode)
 			}
 	}
 //--------------------------------------------
-//           UltrasonicSensor
-//--------------------------------------------
-
-int Cing::ReadUltrasonicSensor()
-	{
-		#define UltrasonicSensor 13
-		int duration;
-		int distance;
-		pinMode(UltrasonicSensor, OUTPUT);
-		digitalWrite(UltrasonicSensor, LOW);
-		delayMicroseconds(2);
-		digitalWrite(UltrasonicSensor, HIGH);
-		delayMicroseconds(10);
-		digitalWrite(UltrasonicSensor, LOW);
-		delayMicroseconds(10);
-		pinMode(UltrasonicSensor, INPUT);
-		duration = pulseIn(UltrasonicSensor, HIGH);
-		distance = duration/58.2;
-		return distance;
-	}
-//--------------------------------------------
 //             ShineSensors
 //--------------------------------------------
 int Cing::ReadShineSensor(){
 	#define ShineSensor 13
 	pinMode(ShineSensor,INPUT);
-	int shine_value;
-	int shine_value = map(digitalRead(ShineSensor),0,1,0,100);
+	int shine_value = map(digitalRead(ShineSensor),0,1,100,0);
 	return shine_value;
 }
 //--------------------------------------------
@@ -215,8 +193,13 @@ int Cing::ReadShineSensor(){
 bool Cing::ReadButton()
 	{
 		#define Button A6
-		pinMode(Button,INPUT);
-		bool button_value = digitalRead(Button);
+		bool button_value;
+		if(analogRead(Button)>1000){
+			button_value = 1;
+		}
+		else{
+			button_value = 0;
+		}
 		return button_value;
 	}
 //--------------------------------------------
@@ -232,22 +215,30 @@ bool Cing::ReadButtonExternal()
 //--------------------------------------------
 //          Potentiometer
 //--------------------------------------------
-int Cing::ReadPotentiometer()
-  {
+int Cing::ReadPotentiometer(){
 		#define potentiometer A1
 		int potentiometer_value = map(analogRead(potentiometer),0,1023,0,100);
 		return potentiometer_value;
-	}
+}
 //--------------------------------------------
 //                  Shine Array
 //--------------------------------------------
 int Cing::ReadShineArray(int sensor){
-  int value1 = map(analogRead(A6),0,1023,0,100);
-  int value2 = map(analogRead(A7),0,1023,0,100);
-  if(sensor == 1){
-    return value1;
-  }
-  else{
-    return value2;
-  }
+	int value1 = map(analogRead(A0),0,1023,100,0);
+	int value2 = map(analogRead(A7),0,1023,100,0);
+	if(sensor == 1){
+		return value1;
+	}
+	else{
+		return value2;
+	}
 }
+//--------------------------------------------
+//           UltrasonicSensor
+//--------------------------------------------
+bool Cing::ReadUltrasonicSensor()
+  {
+    #define UltrasonicSensor 13
+    pinMode(UltrasonicSensor,INPUT);
+    return digitalRead(UltrasonicSensor);
+  }
